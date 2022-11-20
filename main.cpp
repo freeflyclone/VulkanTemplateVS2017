@@ -78,12 +78,19 @@ private:
 
 #ifdef __APPLE__
 		requiredExtensions.emplace_back(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+		createInfo.flags |= VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
 #endif
 
-		createInfo.flags |= VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
 		createInfo.enabledExtensionCount = (uint32_t)requiredExtensions.size();
 		createInfo.ppEnabledExtensionNames = requiredExtensions.data();
-		createInfo.enabledLayerCount = 0;
+
+		if (enableValidationLayers) {
+			createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+			createInfo.ppEnabledLayerNames = validationLayers.data();
+		}
+		else {
+			createInfo.enabledLayerCount = 0;
+		}
 
 		VkResult result;
 
@@ -139,7 +146,9 @@ private:
 	const uint32_t HEIGHT = 600;
 	GLFWwindow* window;
 	VkInstance instance;
-	const std::vector<const char*> validationLayers = { "VK_LAYER_KHRONOS_validation" };
+	const std::vector<const char*> validationLayers = { 
+		"VK_LAYER_KHRONOS_validation",
+	};
 
 #ifdef NDEBUG
 	const bool enableValidationLayers = false;
