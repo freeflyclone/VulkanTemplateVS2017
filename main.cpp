@@ -62,8 +62,14 @@ private:
 		createLogicalDevice();
 		createSwapChain();
 		createImageViews();
+		createGraphicsPipeline();
 
 		std::cout << __FUNCTION__ << "() succeeded." << std::endl;
+	}
+
+	void createGraphicsPipeline()
+	{
+
 	}
 
 	void createImageViews()
