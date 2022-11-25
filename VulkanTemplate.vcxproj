@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stb_impl.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.frag" />
