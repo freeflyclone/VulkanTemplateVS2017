@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stb_impl.c" />
+    <ClCompile Include="tinyobjloader_impl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.frag" />

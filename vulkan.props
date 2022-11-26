@@ -6,11 +6,12 @@
     <GLFW_DIR>D:\src\3rdParty\glfw</GLFW_DIR>
     <GLM_DIR>d:\src\3rdParty\glm</GLM_DIR>
     <STB_DIR>D:\src\3rdParty\stb</STB_DIR>
+    <TINY_OBJ_LOADER_DIR>D:\src\3rdParty\tinyobjloader</TINY_OBJ_LOADER_DIR>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(VULKAN_DIR)\Include;$(GLM_DIR)\;$(GLFW_DIR)\include;$(STB_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(VULKAN_DIR)\Include;$(GLM_DIR)\;$(GLFW_DIR)\include;$(STB_DIR);$(TINY_OBJ_LOADER_DIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(VULKAN_DIR)\Lib;$(GLFW_DIR)\lib-vc2017;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -32,6 +33,10 @@
     </BuildMacro>
     <BuildMacro Include="STB_DIR">
       <Value>$(STB_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="TINY_OBJ_LOADER_DIR">
+      <Value>$(TINY_OBJ_LOADER_DIR)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>
